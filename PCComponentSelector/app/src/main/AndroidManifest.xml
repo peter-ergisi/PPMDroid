@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.pccomponentselector">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".CPUCoolerHelp"
+            android:label="@string/title_activity_cpucooler_help"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".CaseFanHelp"
+            android:label="@string/title_activity_case_fan_help"
+            android:parentActivityName=".SupportCentreActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.pccomponentselector.SupportCentreActivity" />
+        </activity>
+        <activity
+            android:name=".RAMHelp"
+            android:label="@string/title_activity_ramhelp"
+            android:parentActivityName=".SupportCentreActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.pccomponentselector.SupportCentreActivity" />
+        </activity>
+        <activity
+            android:name=".MoboHelp"
+            android:label="@string/title_activity_mobo_help"
+            android:parentActivityName=".SupportCentreActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.pccomponentselector.SupportCentreActivity" />
+        </activity>
+        <activity
+            android:name=".GPUHelp"
+            android:label="@string/title_activity_gpuhelp"
+            android:parentActivityName=".SupportCentreActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.pccomponentselector.SupportCentreActivity" />
+        </activity>
+        <activity
+            android:name=".CPUHelp"
+            android:label="@string/title_activity_cpuhelp"
+            android:parentActivityName=".SupportCentreActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.pccomponentselector.SupportCentreActivity" />
+        </activity>
+        <activity
+            android:name=".SupportCentreActivity"
+            android:label="@string/title_activity_support_centre"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MyBuildActivity"
+            android:label="@string/title_activity_my_build"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity_my_build"
+            android:label="@string/title_activity_my_build"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.pccomponentselector.MainActivity" />
+        </activity>
+        <activity android:name=".MyBuild_main" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

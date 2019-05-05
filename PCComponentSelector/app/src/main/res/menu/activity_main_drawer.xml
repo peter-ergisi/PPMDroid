@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group
+        android:id="@+id/Navigation"
+        android:visible="true">
+        <item
+            android:id="@+id/HomeNavLink"
+            android:enabled="true"
+            android:title="Home"
+            android:visible="true" />
+        <item
+            android:id="@+id/MyBuildNavLink"
+            android:enabled="true"
+            android:title="My Build"
+            android:visible="true" />
+        <item
+            android:id="@+id/CommunityHubNavLink"
+            android:enabled="true"
+            android:title="Community Hub"
+            android:visible="true" />
+        <item
+            android:id="@+id/ComponentsNavLink"
+            android:enabled="true"
+            android:title="Components"
+            android:visible="true" />
+        <item
+            android:id="@+id/PeripheralsNavLink"
+            android:enabled="true"
+            android:title="Peripherals"
+            android:visible="true" />
+        <item
+            android:id="@+id/SupportNavLink"
+            android:enabled="true"
+            android:title="Support Centre"
+            android:visible="true" />
+        <item
+            android:id="@+id/DealsNavLink"
+            android:enabled="true"
+            android:title="Deals"
+            android:visible="true" />
+    </group>
+</menu>

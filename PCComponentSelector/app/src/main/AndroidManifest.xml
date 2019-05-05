@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Periphals"
+            android:label="@string/title_activity_periphals"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".CPUCoolerHelp"
             android:label="@string/title_activity_cpucooler_help"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CaseFanHelp"
             android:label="@string/title_activity_case_fan_help"

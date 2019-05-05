@@ -142,6 +142,11 @@ public class SupportCentreActivity extends AppCompatActivity
                 Intent supToSup = new Intent(SupportCentreActivity.this,SupportCentreActivity.class);
                 startActivity(supToSup);
                 break;
+
+            case R.id.PeripheralsNavLink:
+                Intent mainToPer = new Intent(SupportCentreActivity.this,Periphals.class);
+                startActivity(mainToPer);
+                break;
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

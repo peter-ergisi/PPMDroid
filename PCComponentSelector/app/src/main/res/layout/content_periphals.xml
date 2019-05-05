@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Periphals"
+    tools:showIn="@layout/app_bar_periphals">
+
+    <TextView
+        android:id="@+id/PeriphalsHeader"
+        android:layout_width="281dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginLeft="136dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginRight="136dp"
+        android:text="My Peripherals "
+        android:textSize="36sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="351dp"
+        android:layout_height="357dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PeriphalsHeader"
+        app:layout_constraintVertical_bias="0.082">
+
+        <TextView
+            android:id="@+id/CPUHeader"
+            android:layout_width="254dp"
+            android:layout_height="wrap_content"
+            android:text="Mouse:"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/MouseSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/KeyboardHeader"
+            android:layout_width="254dp"
+            android:layout_height="wrap_content"
+            android:text="Keyboard:"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="224dp" />
+
+        <Spinner
+            android:id="@+id/KeyboardSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/MonitorHeader"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:text="Monitor"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="224dp" />
+
+        <Spinner
+            android:id="@+id/MonitorSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/HeadphonesHeader"
+            android:layout_width="258dp"
+            android:layout_height="wrap_content"
+            android:text="Headphones"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="224dp" />
+
+        <Spinner
+            android:id="@+id/HeadphonesSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/MicrophoneHeader"
+            android:layout_width="259dp"
+            android:layout_height="wrap_content"
+            android:text="Microphone"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="224dp" />
+
+        <Spinner
+            android:id="@+id/RAMSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/SpeakersHeader"
+            android:layout_width="261dp"
+            android:layout_height="wrap_content"
+            android:text="Speakers"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/CaseFanSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/loadButton2"
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Load"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saveButton"
+        app:layout_constraintVertical_bias="0.166" />
+
+    <Button
+        android:id="@+id/saveButton3"
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginBottom="60dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/BuyButton"
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="8dp"
+        android:text="Buy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toEndOf="@+id/LoadButton" />
+</android.support.constraint.ConstraintLayout>

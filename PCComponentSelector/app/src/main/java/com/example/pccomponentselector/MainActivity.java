@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity
         //Declarations of button variables for main Activity
         private Button MyBuildButton; //declares button for MyBuild button variable
         private Button SupportCentreButton;
+        private Button MyPeriphalsButton;
+    //
         //Declarations of Navigation Bar variables for main Activity
         private NavigationView MyBuildNavigation; //declares Navigation Bar button for MyBuild button variable
 
@@ -59,6 +61,14 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View MBB){
                 moveToSupportCentre();
+            }
+        });
+
+        MyPeriphalsButton = findViewById(R.id.MyPeripheralsButtonLink);
+        MyPeriphalsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View MBB){
+                moveToMyPeripherals();
             }
         });
 
@@ -121,6 +131,10 @@ public class MainActivity extends AppCompatActivity
                 Intent mainToSup = new Intent(MainActivity.this,SupportCentreActivity.class);
                 startActivity(mainToSup);
                 break;
+            case R.id.PeripheralsNavLink:
+                Intent mainToPer = new Intent(MainActivity.this,Periphals.class);
+                startActivity(mainToPer);
+                break;
         }
 
         drawer.closeDrawer(GravityCompat.START);
@@ -141,5 +155,12 @@ public class MainActivity extends AppCompatActivity
         //put Mainactivity if function doesn't work
     }
 
+
+    private void moveToMyPeripherals() //moves user from current page to mybuild when called
+    {
+        Intent mainToMyPeripherals = new Intent(MainActivity.this, Periphals.class);
+        startActivity(mainToMyPeripherals);
+        //put Mainactivity if function doesn't work
+    }
 
 }

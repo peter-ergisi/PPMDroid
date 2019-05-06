@@ -1,6 +1,7 @@
 package com.example.pccomponentselector;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -40,6 +41,7 @@ public class MyBuildActivity extends AppCompatActivity
 
     private Button SaveB;
     private Button LoadB;
+    private Button BuyB;
 
     Spinner CPU;
     Spinner CPUCOOL;
@@ -126,6 +128,22 @@ public class MyBuildActivity extends AppCompatActivity
             @Override
             public void onClick(View MBB){
                 loadCode();
+            }
+        });
+
+        BuyB = findViewById(R.id.BuildButton);
+        BuyB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View MBB){
+                int userChoice0 = CPU.getSelectedItemPosition();
+                String userChoice1 = CPU.getSelectedItem().toString();
+                if(userChoice0 != -1 && userChoice0 != 0) {
+                    userChoice1.replaceAll("\\s","+");
+                    String url = "http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + userChoice1;
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
+                }
             }
         });
 

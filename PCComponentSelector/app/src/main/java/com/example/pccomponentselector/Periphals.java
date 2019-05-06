@@ -2,6 +2,7 @@ package com.example.pccomponentselector;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -32,12 +33,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.net.URI;
 
 public class Periphals extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Button SaveB;
     private Button LoadB;
+    private Button BuyB;
 
     Spinner Mouse;
     Spinner Keyboard;
@@ -103,6 +106,22 @@ public class Periphals extends AppCompatActivity
             @Override
             public void onClick(View MBB){
                 loadCode();
+            }
+        });
+
+        BuyB = findViewById(R.id.BuyButton);
+        BuyB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View MBB){
+                int userChoice0 = Mouse.getSelectedItemPosition();
+                String userChoice1 = Mouse.getSelectedItem().toString();
+                if(userChoice0 != -1 && userChoice0 != 0) {
+                    userChoice1.replaceAll("\\s","+");
+                    String url = "http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=" + userChoice1;
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
+                }
             }
         });
     }

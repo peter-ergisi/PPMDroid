@@ -40,8 +40,6 @@ public class MyBuildActivity extends AppCompatActivity
     Spinner CASE;
     Spinner CASECOOL;
 
-    String URL="http://178.62.33.12:3000";
-    boolean truth = true;
     ArrayList<String> CPUNames;
     ArrayList<String> CPUCOOLNames;
     ArrayList<String> GPUNames;

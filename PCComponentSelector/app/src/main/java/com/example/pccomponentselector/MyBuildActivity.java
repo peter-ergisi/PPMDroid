@@ -10,8 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;//allows code to be done for Spinner by importing android widget spinner library
 import android.widget.Toast;
 
@@ -30,8 +32,15 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import android.content.SharedPreferences;
+
+
 public class MyBuildActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Button SaveB;
+    private Button LoadB;
+
     Spinner CPU;
     Spinner CPUCOOL;
     Spinner GPU;
@@ -103,6 +112,22 @@ public class MyBuildActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        SaveB = findViewById(R.id.saveButton);
+        SaveB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View MBB){
+                saveCode();
+            }
+        });
+
+        LoadB = findViewById(R.id.LoadButton);
+        LoadB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View MBB){
+                loadCode();
+            }
+        });
 
     }
 
@@ -379,6 +404,66 @@ public class MyBuildActivity extends AppCompatActivity
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         stringRequest.setRetryPolicy(policy);
         requestQueue.add(stringRequest);
+    }
+
+    private void saveCode() {
+        int userChoice1 = CPU.getSelectedItemPosition();
+        int userChoice2 = CPUCOOL.getSelectedItemPosition();
+        int userChoice3 = GPU.getSelectedItemPosition();
+        int userChoice4 = MOBO.getSelectedItemPosition();
+        int userChoice5 = RAM.getSelectedItemPosition();
+        int userChoice6 = CASE.getSelectedItemPosition();
+        int userChoice7 = CASECOOL.getSelectedItemPosition();
+
+        SharedPreferences sharedPref = getSharedPreferences("UserData",0);
+        SharedPreferences.Editor prefEditor = sharedPref.edit();
+        prefEditor.putInt("CPU",userChoice1);
+        prefEditor.putInt("CPUCOOL",userChoice2);
+        prefEditor.putInt("GPU",userChoice3);
+        prefEditor.putInt("MOBO",userChoice4);
+        prefEditor.putInt("RAM",userChoice5);
+        prefEditor.putInt("CASE",userChoice6);
+        prefEditor.putInt("CASECOOL",userChoice7);
+        prefEditor.commit();
+    }
+
+    private void loadCode() {
+        SharedPreferences sharedPref = getSharedPreferences("UserData",MODE_PRIVATE);
+        int spinnerValue1 = sharedPref.getInt("CPU",-1);
+        int spinnerValue2 = sharedPref.getInt("CPUCOOL",-1);
+        int spinnerValue3 = sharedPref.getInt("GPU",-1);
+        int spinnerValue4 = sharedPref.getInt("MOBO",-1);
+        int spinnerValue5 = sharedPref.getInt("RAM",-1);
+        int spinnerValue6 = sharedPref.getInt("CASE",-1);
+        int spinnerValue7 = sharedPref.getInt("CASECOOL",-1);
+        if(spinnerValue1 != -1) {
+            // set the selected value of the spinner
+            CPU.setSelection(spinnerValue1);
+        }
+        if(spinnerValue2 != -1) {
+            // set the selected value of the spinner
+            CPUCOOL.setSelection(spinnerValue2);
+        }
+        if(spinnerValue3 != -1) {
+            // set the selected value of the spinner
+            GPU.setSelection(spinnerValue3);
+        }
+        if(spinnerValue4 != -1) {
+            // set the selected value of the spinner
+            MOBO.setSelection(spinnerValue4);
+        }
+        if(spinnerValue5 != -1) {
+            // set the selected value of the spinner
+            RAM.setSelection(spinnerValue5);
+        }
+        if(spinnerValue6 != -1) {
+            // set the selected value of the spinner
+            CASE.setSelection(spinnerValue6);
+        }
+        if(spinnerValue7 != -1) {
+            // set the selected value of the spinner
+            CASECOOL.setSelection(spinnerValue7);
+        }
     }
 
 }

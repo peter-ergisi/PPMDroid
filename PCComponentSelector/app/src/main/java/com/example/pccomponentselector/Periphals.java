@@ -1,6 +1,7 @@
 package com.example.pccomponentselector;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,8 +11,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;//allows code to be done for Spinner by importing android widget spinner library
 import android.widget.Toast;
 
@@ -33,6 +36,9 @@ import java.util.ArrayList;
 public class Periphals extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private Button SaveB;
+    private Button LoadB;
+
     Spinner Mouse;
     Spinner Keyboard;
     Spinner Monitor;
@@ -46,6 +52,7 @@ public class Periphals extends AppCompatActivity
     ArrayList<String> HeadphoneNames;
     ArrayList<String> MicrophoneNames;
     ArrayList<String> SpeakersNames;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +89,22 @@ public class Periphals extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        SaveB = findViewById(R.id.saveButton3);
+        SaveB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View MBB){
+                saveCode();
+            }
+        });
+
+        LoadB = findViewById(R.id.loadButton2);
+        LoadB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View MBB){
+                loadCode();
+            }
+        });
     }
 
     @Override
@@ -330,6 +353,60 @@ public class Periphals extends AppCompatActivity
         RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         stringRequest.setRetryPolicy(policy);
         requestQueue.add(stringRequest);
+    }
+
+    private void saveCode() {
+        int userChoice1 = Mouse.getSelectedItemPosition();
+        int userChoice2 = Keyboard.getSelectedItemPosition();
+        int userChoice3 = Monitor.getSelectedItemPosition();
+        int userChoice4 = Headphones.getSelectedItemPosition();
+        int userChoice5 = Microphone.getSelectedItemPosition();
+        int userChoice6 = Speakers.getSelectedItemPosition();
+
+        SharedPreferences sharedPref = getSharedPreferences("UserData",0);
+        SharedPreferences.Editor prefEditor = sharedPref.edit();
+        prefEditor.putInt("Mouse",userChoice1);
+        prefEditor.putInt("Keyboard",userChoice2);
+        prefEditor.putInt("Monitor",userChoice3);
+        prefEditor.putInt("Headphones",userChoice4);
+        prefEditor.putInt("Microphone",userChoice5);
+        prefEditor.putInt("Speakers",userChoice6);
+        prefEditor.commit();
+    }
+
+    private void loadCode() {
+        SharedPreferences sharedPref = getSharedPreferences("UserData",MODE_PRIVATE);
+        int spinnerValue1 = sharedPref.getInt("Mouse",-1);
+        int spinnerValue2 = sharedPref.getInt("Keyboard",-1);
+        int spinnerValue3 = sharedPref.getInt("Monitor",-1);
+        int spinnerValue4 = sharedPref.getInt("Headphones",-1);
+        int spinnerValue5 = sharedPref.getInt("Microphone",-1);
+        int spinnerValue6 = sharedPref.getInt("Speakers",-1);
+
+        if(spinnerValue1 != -1) {
+            // set the selected value of the spinner
+            Mouse.setSelection(spinnerValue1);
+        }
+        if(spinnerValue2 != -1) {
+            // set the selected value of the spinner
+            Keyboard.setSelection(spinnerValue2);
+        }
+        if(spinnerValue3 != -1) {
+            // set the selected value of the spinner
+            Monitor.setSelection(spinnerValue3);
+        }
+        if(spinnerValue4 != -1) {
+            // set the selected value of the spinner
+            Headphones.setSelection(spinnerValue4);
+        }
+        if(spinnerValue5 != -1) {
+            // set the selected value of the spinner
+            Microphone.setSelection(spinnerValue5);
+        }
+        if(spinnerValue6 != -1) {
+            // set the selected value of the spinner
+            Speakers.setSelection(spinnerValue6);
+        }
     }
 }
 

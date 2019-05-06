@@ -34,7 +34,8 @@ public class MyBuildActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Spinner CPUSpinner = (Spinner) findViewById(R.id.MouseSpinner);
+        Spinner CPUSpinner = (Spinner) findViewById(R.id.CPUSpinner);
+
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -44,6 +45,16 @@ public class MyBuildActivity extends AppCompatActivity
         // Apply the adapter to the spinner
         CPUSpinner.setAdapter(adapter);
 
+        /*
+        Spinner GPUSpinner = (Spinner) findViewById(R.id.GPUSpinner);
+
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+                R.array.GPU_arrays, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        GPUSpinner.setAdapter(adapter2);
+        */
     }
 
     @Override
@@ -100,6 +111,11 @@ public class MyBuildActivity extends AppCompatActivity
                 Intent mainToPer = new Intent(MyBuildActivity.this,Periphals.class);
                 startActivity(mainToPer);
                 break;
+            case R.id.CommunityHubNavLink:
+                Intent mainToCH = new Intent(MyBuildActivity.this,CommunityHub.class);
+                startActivity(mainToCH);
+                break;
+
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/linearLayout"
         android:layout_width="351dp"
         android:layout_height="357dp"
         android:layout_marginStart="8dp"
@@ -41,90 +41,76 @@
         app:layout_constraintVertical_bias="0.082">
 
         <TextView
-            android:id="@+id/CPUHeader"
-            android:layout_width="254dp"
+            android:id="@+id/MouseHeader"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mouse:"
+            android:text="Mouse"
             android:textSize="24sp" />
 
         <Spinner
             android:id="@+id/MouseSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/KeyboardHeader"
-            android:layout_width="254dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Keyboard:"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="224dp" />
+            android:text="Keyboard"
+            android:textSize="24sp" />
 
         <Spinner
             android:id="@+id/KeyboardSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/MonitorHeader"
-            android:layout_width="256dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Monitor"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="224dp" />
+            android:textSize="24sp" />
 
         <Spinner
             android:id="@+id/MonitorSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/HeadphonesHeader"
-            android:layout_width="258dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Headphones"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="224dp" />
+            android:textSize="24sp" />
 
         <Spinner
             android:id="@+id/HeadphonesSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/MicrophoneHeader"
-            android:layout_width="259dp"
-            android:layout_height="wrap_content"
-            android:text="Microphone"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="224dp" />
-
-        <Spinner
-            android:id="@+id/RAMSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:spinnerMode="dropdown" />
+            android:text="Microphone"
+            android:textSize="24sp" />
+
+        <Spinner
+            android:id="@+id/MicrophoneSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/SpeakersHeader"
-            android:layout_width="261dp"
+            android:id="@+id/SpeakerHeader"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Speakers"
             android:textSize="24sp" />
 
         <Spinner
-            android:id="@+id/CaseFanSpinner"
+            android:id="@+id/SpeakerSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

@@ -23,6 +23,20 @@
         <item>I3-6100</item>
 
     </string-array>
+
+    <string-array name="GPU_arrays">
+        <item>Select A CPU</item>
+        <item>1070</item>
+        <item>1080</item>
+        <item>I7-9700K</item>
+        <item>I5-9600K</item>
+        <item>I5-8400</item>
+        <item>I5-8600K</item>
+        <item>I3-8100</item>
+        <item>I3-7100</item>
+        <item>I3-6100</item>
+
+    </string-array>
     <string name="title_activity_support_centre">SupportCentreActivity</string>
     <string name="title_activity_cpuhelp">CPUHelp</string>
     <string name="title_activity_gpuhelp">GPUHelp</string>
@@ -38,5 +52,6 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="title_activity_community_hub">CommunityHub</string>
 
 </resources>

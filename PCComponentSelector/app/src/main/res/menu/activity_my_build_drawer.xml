@@ -22,11 +22,6 @@
             android:title="Community Hub"
             android:visible="true" />
         <item
-            android:id="@+id/ComponentsNavLink"
-            android:enabled="true"
-            android:title="Components"
-            android:visible="true" />
-        <item
             android:id="@+id/PeripheralsNavLink"
             android:enabled="true"
             android:title="Peripherals"

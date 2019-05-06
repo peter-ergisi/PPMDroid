@@ -40,7 +40,7 @@
         app:layout_constraintVertical_bias="0.082">
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -53,13 +53,13 @@
                 android:textSize="24sp" />
 
             <Spinner
-                android:id="@+id/MouseSpinner"
+                android:id="@+id/CPUSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown" />
 
             <TextView
-                android:id="@+id/KeyboardHeader"
+                android:id="@+id/CPUCoolerHeader"
                 android:layout_width="254dp"
                 android:layout_height="wrap_content"
                 android:text="CPU Cooler:"
@@ -68,13 +68,13 @@
                 tools:layout_editor_absoluteY="224dp" />
 
             <Spinner
-                android:id="@+id/KeyboardSpinner"
+                android:id="@+id/CPUCoolerSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown" />
 
             <TextView
-                android:id="@+id/MonitorHeader"
+                android:id="@+id/GPUHeader"
                 android:layout_width="256dp"
                 android:layout_height="wrap_content"
                 android:text="Graphics Card"
@@ -83,13 +83,13 @@
                 tools:layout_editor_absoluteY="224dp" />
 
             <Spinner
-                android:id="@+id/MonitorSpinner"
+                android:id="@+id/GPUSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown" />
 
             <TextView
-                android:id="@+id/HeadphonesHeader"
+                android:id="@+id/MoboHeader"
                 android:layout_width="258dp"
                 android:layout_height="wrap_content"
                 android:text="Motherboard"
@@ -98,13 +98,13 @@
                 tools:layout_editor_absoluteY="224dp" />
 
             <Spinner
-                android:id="@+id/HeadphonesSpinner"
+                android:id="@+id/MotherboardSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dropdown" />
 
             <TextView
-                android:id="@+id/MicrophoneHeader"
+                android:id="@+id/RAMHeader"
                 android:layout_width="259dp"
                 android:layout_height="wrap_content"
                 android:text="RAM"
@@ -119,7 +119,7 @@
                 android:spinnerMode="dropdown" />
 
             <TextView
-                android:id="@+id/SpeakersHeader"
+                android:id="@+id/CaseFanHeader"
                 android:layout_width="261dp"
                 android:layout_height="wrap_content"
                 android:text="Case Fans"

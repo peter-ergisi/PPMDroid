@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".CommunityHub"
+            android:label="@string/title_activity_community_hub"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".Periphals"
             android:label="@string/title_activity_periphals"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CPUCoolerHelp"
             android:label="@string/title_activity_cpucooler_help"
@@ -70,16 +74,8 @@
             android:name=".MyBuildActivity"
             android:label="@string/title_activity_my_build"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity_my_build"
-            android:label="@string/title_activity_my_build"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.pccomponentselector.MainActivity" />
-        </activity>
-        <activity android:name=".MyBuild_main" />
+
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

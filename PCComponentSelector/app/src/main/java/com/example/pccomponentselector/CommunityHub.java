@@ -15,13 +15,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
-public class Periphals extends AppCompatActivity
+public class CommunityHub extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_periphals);
+        setContentView(R.layout.activity_communityhub);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -46,7 +46,7 @@ public class Periphals extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.periphals, menu);
+        getMenuInflater().inflate(R.menu.community_hub, menu);
         return true;
     }
 
@@ -65,40 +65,36 @@ public class Periphals extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int MainNavid = item.getItemId();
-
-        switch (MainNavid) {
-            case R.id.HomeNavLink:
-                Intent supToMain = new Intent(Periphals.this, MainActivity.class);
-                startActivity(supToMain);
-                break;
-            case R.id.MyBuildNavLink:
-                Intent supToMyBuild = new Intent(Periphals.this, MyBuildActivity.class);
-                startActivity(supToMyBuild);
-                break;
-
-            case R.id.SupportNavLink:
-                Intent supToSup = new Intent(Periphals.this, SupportCentreActivity.class);
-                startActivity(supToSup);
-                break;
-
-            case R.id.PeripheralsNavLink:
-                Intent mainToPer = new Intent(Periphals.this, Periphals.class);
-                startActivity(mainToPer);
-                break;
-
-            case R.id.CommunityHubNavLink:
-                Intent mainToCH = new Intent(Periphals.this,CommunityHub.class);
-                startActivity(mainToCH);
-                break;
-        }
+        int ComHubid = item.getItemId();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        switch(ComHubid){
+        case R.id.HomeNavLink:
+            Intent mainToMain = new Intent(CommunityHub.this, MainActivity.class);
+            startActivity(mainToMain);
+            break;
+        case R.id.MyBuildNavLink:
+            Intent mainToMyBuild = new Intent(CommunityHub.this, MyBuildActivity.class);
+            startActivity(mainToMyBuild);
+            break;
+        case R.id.SupportNavLink:
+            Intent mainToSup = new Intent(CommunityHub.this,SupportCentreActivity.class);
+            startActivity(mainToSup);
+            break;
+        case R.id.PeripheralsNavLink:
+            Intent mainToPer = new Intent(CommunityHub.this,Periphals.class);
+            startActivity(mainToPer);
+            break;
+        case R.id.CommunityHubNavLink:
+            Intent mainToCH = new Intent(CommunityHub.this,CommunityHub.class);
+            startActivity(mainToCH);
+            break;
+
+    }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+
     }
 }
+
 

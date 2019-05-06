@@ -367,7 +367,7 @@ public class MyBuildActivity extends AppCompatActivity
                             CASECOOLNames.add(country);
                         }
                     }
-                    CASECOOLNames.setAdapter(new ArrayAdapter<String>(MyBuildActivity.this, android.R.layout.simple_spinner_item, CASECOOLNames));
+                    CASECOOL.setAdapter(new ArrayAdapter<String>(MyBuildActivity.this, android.R.layout.simple_spinner_item, CASECOOLNames));
                 }catch (JSONException e){e.printStackTrace();}
             }
         }, new Response.ErrorListener() {

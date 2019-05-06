@@ -33,12 +33,22 @@ import java.util.ArrayList;
 public class MyBuildActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Spinner CPU;
+    Spinner CPUCOOL;
     Spinner GPU;
+    Spinner MOBO;
+    Spinner RAM;
+    Spinner CASE;
+    Spinner CASECOOL;
 
     String URL="http://178.62.33.12:3000";
     boolean truth = true;
     ArrayList<String> CPUNames;
+    ArrayList<String> CPUCOOLNames;
     ArrayList<String> GPUNames;
+    ArrayList<String> MOBONames;
+    ArrayList<String> RAMNames;
+    ArrayList<String> CASENames;
+    ArrayList<String> CASECOOLNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +56,29 @@ public class MyBuildActivity extends AppCompatActivity
         setContentView(R.layout.activity_my_build);
 
         CPUNames=new ArrayList<>();
+        CPUCOOLNames=new ArrayList<>();
         GPUNames=new ArrayList<>();
+        MOBONames=new ArrayList<>();
+        RAMNames=new ArrayList<>();
+        CASENames=new ArrayList<>();
+        CASECOOLNames=new ArrayList<>();
+
         CPU=(Spinner)findViewById(R.id.CPUSpinner);
-        GPU=(Spinner)findViewById(R.id.GraphicsCardSpinner);
+        CPUCOOL=(Spinner)findViewById(R.id.CPUCoolerSpinner);
+        GPU=(Spinner)findViewById(R.id.GPUSpinner);
+        MOBO=(Spinner)findViewById(R.id.MotherboardSpinner);
+        RAM=(Spinner)findViewById(R.id.RAMSpinner);
+        CASE=(Spinner)findViewById(R.id.CaseSpinner);
+        CASECOOL=(Spinner)findViewById(R.id.CaseFanSpinner);
+
         loadSpinnerDataCPU("http://178.62.33.12:3000/CPU");
+        loadSpinnerDataCPUCOOL("http://178.62.33.12:3000/CPUCOOL");
         loadSpinnerDataGPU("http://178.62.33.12:3000/GPU");
+        loadSpinnerDataMOBO("http://178.62.33.12:3000/MOBO");
+        loadSpinnerDataRAM("http://178.62.33.12:3000/RAM");
+        loadSpinnerDataCASE("http://178.62.33.12:3000/CASE");
+        loadSpinnerDataCASECOOL("http://178.62.33.12:3000/CASECOOL");
+
         /*spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -175,6 +203,36 @@ public class MyBuildActivity extends AppCompatActivity
         requestQueue.add(stringRequest);
     }
 
+    private void loadSpinnerDataCPUCOOL(String url) {
+        RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONArray jsonArray=new JSONArray(response);
+                    if(true){
+                        for(int i=0;i<jsonArray.length();i++){
+                            JSONObject jsonObject1=jsonArray.getJSONObject(i);
+                            String country=jsonObject1.getString("Name");
+                            CPUCOOLNames.add(country);
+                        }
+                    }
+                    CPUCOOL.setAdapter(new ArrayAdapter<String>(MyBuildActivity.this, android.R.layout.simple_spinner_item, CPUCOOLNames));
+                }catch (JSONException e){e.printStackTrace();}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
     private void loadSpinnerDataGPU(String url) {
         RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -190,6 +248,126 @@ public class MyBuildActivity extends AppCompatActivity
                         }
                     }
                     GPU.setAdapter(new ArrayAdapter<String>(MyBuildActivity.this, android.R.layout.simple_spinner_item, GPUNames));
+                }catch (JSONException e){e.printStackTrace();}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
+    private void loadSpinnerDataMOBO(String url) {
+        RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONArray jsonArray=new JSONArray(response);
+                    if(true){
+                        for(int i=0;i<jsonArray.length();i++){
+                            JSONObject jsonObject1=jsonArray.getJSONObject(i);
+                            String country=jsonObject1.getString("Name");
+                            MOBONames.add(country);
+                        }
+                    }
+                    MOBO.setAdapter(new ArrayAdapter<String>(MyBuildActivity.this, android.R.layout.simple_spinner_item, MOBONames));
+                }catch (JSONException e){e.printStackTrace();}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
+    private void loadSpinnerDataRAM(String url) {
+        RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONArray jsonArray=new JSONArray(response);
+                    if(true){
+                        for(int i=0;i<jsonArray.length();i++){
+                            JSONObject jsonObject1=jsonArray.getJSONObject(i);
+                            String country=jsonObject1.getString("Name");
+                            RAMNames.add(country);
+                        }
+                    }
+                    RAM.setAdapter(new ArrayAdapter<String>(MyBuildActivity.this, android.R.layout.simple_spinner_item, RAMNames));
+                }catch (JSONException e){e.printStackTrace();}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
+    private void loadSpinnerDataCASE(String url) {
+        RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONArray jsonArray=new JSONArray(response);
+                    if(true){
+                        for(int i=0;i<jsonArray.length();i++){
+                            JSONObject jsonObject1=jsonArray.getJSONObject(i);
+                            String country=jsonObject1.getString("Name");
+                            CASENames.add(country);
+                        }
+                    }
+                    CASE.setAdapter(new ArrayAdapter<String>(MyBuildActivity.this, android.R.layout.simple_spinner_item, CASENames));
+                }catch (JSONException e){e.printStackTrace();}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
+    private void loadSpinnerDataCASECOOL(String url) {
+        RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONArray jsonArray=new JSONArray(response);
+                    if(true){
+                        for(int i=0;i<jsonArray.length();i++){
+                            JSONObject jsonObject1=jsonArray.getJSONObject(i);
+                            String country=jsonObject1.getString("Name");
+                            CASECOOLNames.add(country);
+                        }
+                    }
+                    CASECOOLNames.setAdapter(new ArrayAdapter<String>(MyBuildActivity.this, android.R.layout.simple_spinner_item, CASECOOLNames));
                 }catch (JSONException e){e.printStackTrace();}
             }
         }, new Response.ErrorListener() {
